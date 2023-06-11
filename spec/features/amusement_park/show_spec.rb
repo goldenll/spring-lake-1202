@@ -13,6 +13,8 @@ RSpec.describe "the amusement park show page" do
     mechanic2 = ride2.mechanics.create!(name: "Simon G", years_experience: 3)
     mechanic3 = ride3.mechanics.create!(name: "Jolene Dog", years_experience: 4)
     mechanic4 = ride4.mechanics.create!(name: "Betty White", years_experience: 15)
+    RideMechanic.create!(ride: ride1, mechanic: mechanic2)
+    # ep: ^ add in bc it is ideal to have a mechanic assigned to more than one ride at the same park to give the tests an opportunity to fail
 
     visit "/amusement_parks/#{ap1.id}"
 
@@ -38,7 +40,7 @@ RSpec.describe "the amusement park show page" do
     mechanic2 = ride2.mechanics.create!(name: "Simon G", years_experience: 3)
     mechanic3 = ride3.mechanics.create!(name: "Jolene Dog", years_experience: 4)
     mechanic4 = ride4.mechanics.create!(name: "Betty White", years_experience: 15)
-
+# ep: add in more mechanics per ride to show the average code is working; what if two rides have the same avg exp for mechanics, etc?
     visit "/amusement_parks/#{ap1.id}"
 
     expect(page).to have_content("#{ride1.name} #{mechanic1.years_experience}")

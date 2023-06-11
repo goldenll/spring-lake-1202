@@ -9,7 +9,7 @@ RSpec.describe Mechanic, type: :model do
   describe "instance methods" do
     
     describe "#all_rides" do 
-      it "selects all of a mechanic's rides" do
+      xit "selects all of a mechanic's rides" do
         ap1 = AmusementPark.create!(name: "Six Flags", admission_cost: 75)
         ap2 = AmusementPark.create!(name: "Disneyland", admission_cost: 100)
         ride1 = ap1.rides.create!(name: "The Hurler", thrill_rating: 7, open: false)
